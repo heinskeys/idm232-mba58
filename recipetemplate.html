@@ -11,27 +11,41 @@
     <title>Recipe Page Template</title>
 </head>
 <body>
+    <!-- !Navigation Bar -->
     <header>
-        <nav>
-
+        <nav class="navigation" id="navigation">
+            <!-- *Navigation Base Code by W3Schools -->
+            <a href="index.html" class="siteLogo">Taste Threads</a>
+            <a href="cusinetype.html">Recipes</a>
+            <a href="about.html">About Us</a>
+            <a href="help.html">Help</a>
+            <a href="javascript:void(0);" class="navIcon" onclick="navButton()">
+            
+            <!-- *Default Navigation Icon -->
+            <svg id="materialMenu" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -960 960 960" fill="#000000">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+            </svg>
+    
+            <!-- *Close Button -->
+            <svg id="materialClose" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" style="display:none" >
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+            </svg>
+            </a>
         </nav>
-        <script src="test.js"></script>
     </header>
 
-
-    <!-- *Recipe Content -->
-
+    <!-- !Recipe Content -->
     <main>
         <!-- *Recipe Image -->
         <section class="recipeHeader">
             <div class="recipeImage">
-                <img src="https://placehold.co/600x400" alt="">
+                <img src="testimage.jpg" alt="">
             </div>
 
             <!-- *Recipe Meta -->
-            <div>
-                <h2>Recipe Name</h2>
-                <h3>Subtitle</h3>
+            <div class="recipeInfo">
+                <h2>Bucatini & Tomato Sauce</h2>
+                <h3>with Roasted Broccoli</h3>
                 <hr>
                 <div class="recipeMeta">
                     <div class="metaItem">
@@ -61,44 +75,50 @@
         <div class="recipeBorder"></div>
 
         <!-- *Recipe Ingredients List -->
-        <section class="ingredients">
-            <h4>Ingredients</h4>
-            <div>
-                <img src="https://placehold.co/600x400" alt="">
-            </div>
-            <ul class="ingredientsList">
-                <li>Ingredient</li>
-                <li>Ingredient</li>
-                <li>Ingredient</li>
-            </ul>
-        </section>
-
-        <!-- *Recipe Steps -->
-
-        <section class="steps">
-            <h4>Preparation</h4>
-            <ol class="stepList">
-                <li>
-                    <h5>Step Name</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ornare ex. Duis elit lectus, venenatis sed dolor at, lacinia fringilla justo. Nulla vehicula sagittis magna, id mollis nunc tincidunt eu. Vestibulum est nibh, dignissim eget imperdiet quis, eleifend sed neque. Nam consectetur risus quis vestibulum tempor.</p>
-                    <img src="https://placehold.co/600x400" alt="">
-                </li>
-                <li>
-                    <h5>Step Name</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ornare ex. Duis elit lectus, venenatis sed dolor at, lacinia fringilla justo. Nulla vehicula sagittis magna, id mollis nunc tincidunt eu. Vestibulum est nibh, dignissim eget imperdiet quis, eleifend sed neque. Nam consectetur risus quis vestibulum tempor.</p>
-                    <img src="https://placehold.co/600x400" alt="">
-                </li>
-                <li>
-                    <h5>Step Name</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ornare ex. Duis elit lectus, venenatis sed dolor at, lacinia fringilla justo. Nulla vehicula sagittis magna, id mollis nunc tincidunt eu. Vestibulum est nibh, dignissim eget imperdiet quis, eleifend sed neque. Nam consectetur risus quis vestibulum tempor.</p>
-                    <img src="https://placehold.co/600x400" alt="">
-                </li>
-            </ol>
+        <section class="recipeContent">
+            <section class="ingredients">
+                <h4>Ingredients</h4>
+                <hr>
+                <div>
+                    <img src="https://placehold.co/200" alt="">
+                </div>
+                <ul class="ingredientsList">
+                    <li>Ingredient</li>
+                    <li>Ingredient</li>
+                    <li>Ingredient</li>
+                </ul>
+            </section>
+            <!-- *Recipe Steps -->
+            <section class="steps">
+                <h4>Preparation</h4>
+                <hr>
+                <ol class="stepList">
+                    <li>
+                        <h5>Step Name</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ornare ex. Duis elit lectus, venenatis sed dolor at, lacinia fringilla justo. Nulla vehicula sagittis magna, id mollis nunc tincidunt eu. Vestibulum est nibh, dignissim eget imperdiet quis, eleifend sed neque. Nam consectetur risus quis vestibulum tempor.</p>
+                        <img src="https://placehold.co/200" alt="">
+                    </li>
+                    <li>
+                        <h5>Step Name</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ornare ex. Duis elit lectus, venenatis sed dolor at, lacinia fringilla justo. Nulla vehicula sagittis magna, id mollis nunc tincidunt eu. Vestibulum est nibh, dignissim eget imperdiet quis, eleifend sed neque. Nam consectetur risus quis vestibulum tempor.</p>
+                        <img src="https://placehold.co/200" alt="">
+                    </li>
+                    <li>
+                        <h5>Step Name</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ornare ex. Duis elit lectus, venenatis sed dolor at, lacinia fringilla justo. Nulla vehicula sagittis magna, id mollis nunc tincidunt eu. Vestibulum est nibh, dignissim eget imperdiet quis, eleifend sed neque. Nam consectetur risus quis vestibulum tempor.</p>
+                        <img src="https://placehold.co/200" alt="">
+                    </li>
+                </ol>
+            </section>
         </section>
     </main>
 
+    <!-- !Footer -->
     <footer>
 
     </footer>
+    
+    <!-- !JavaScript -->
+    <script src="assets/tasteThreads.js"></script>
 </body>
 </html>
