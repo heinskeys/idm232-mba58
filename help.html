@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/rsa1ajy.css">
     <link rel="stylesheet" href="assets/tastethreads.css">
     <title>Document</title>
@@ -16,9 +17,9 @@
         <nav class="navigation" id="navigation">
             <!-- *Navigation Base Code by W3Schools -->
             <a href="index.html" class="siteLogo">Taste Threads</a>
-            <a href="cusinetype.html">Recipes</a>
-            <a href="about.html">About Us</a>
             <a href="help.html">Help</a>
+            <a href="about.html">About Us</a>
+            <a href="cusinetype.html">Recipes</a>
             <a href="javascript:void(0);" class="navIcon" onclick="navButton()">
             
             <!-- *Default Navigation Icon -->
@@ -35,7 +36,39 @@
     </header>
 
     <main>
-
+        <section class="helpSection">
+            <h1>How To Use Taste Threads</h1>
+    
+            <section class="accordionItem">
+                <h3 class="accordionHeader">
+                    <span class="material-icons accordionIcon">remove</span> <!-- Expanded by default -->
+                    How do I search for recipes?
+                </h3>
+                <div class="accordionContent" style="display: block;"> <!-- Default open -->
+                    <p>You can search for recipes using the search bar on the homepage. Simply type the recipe name or ingredients, and press enter.</p>
+                </div>
+            </section>
+            
+            <section class="accordionItem">
+                <h3 class="accordionHeader">
+                    <span class="material-icons accordionIcon">add</span> <!-- Collapsed by default -->
+                    How do I save my favorite recipes?
+                </h3>
+                <div class="accordionContent">
+                    <p>To save your favorite recipes, simply click the heart icon on the recipe page. You can view your saved recipes in your profile.</p>
+                </div>
+            </section>
+            
+            <section class="accordionItem">
+                <h3 class="accordionHeader">
+                    <span class="material-icons accordionIcon">add</span> <!-- Collapsed by default -->
+                    How do I filter recipes by cuisine?
+                </h3>
+                <div class="accordionContent">
+                    <p>On the Recipes page, you can filter recipes by selecting the desired cuisine type from the dropdown menu.</p>
+                </div>
+            </section>
+        </section>
     </main>
     
     <footer>
