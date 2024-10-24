@@ -602,6 +602,48 @@ hr {
 /* TODO: Increase responsiveness of Recipe Template */
 
 @media (min-width: 768px) and (max-width: 1024px) {
+
+  h1, .logoItalic {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+
+  h5 {
+    font-size: 22px;
+  }
+
+  p, nav a {
+    font-size: 16px;
+  }
+
+  .recipeCard h2 {
+    font-size: 22px;
+  }
+
+  .recipeCard h3 {
+    font-size: 16px;
+  }
+
+  .ingredientsList li {
+    font-size: 20px;
+  }
+
+  .metaItem {
+    font-size: 14px;
+  }
+
+
   .recipeCards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -610,6 +652,49 @@ hr {
 }
 
 @media (max-width: 767px) {
+
+  /* !TEXT STYLING */
+
+  h1, .logoItalic {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  p, nav a {
+    font-size: 14px;
+  }
+
+  .recipeCard h2 {
+    font-size: 20px;
+  }
+
+  .recipeCard h3 {
+    font-size: 14px;
+  }
+
+  .ingredientsList li {
+    font-size: 18px;
+  }
+
+  .metaItem {
+    font-size: 12px;
+  }
+
 
   /* !NAV BAR */
 
@@ -642,8 +727,24 @@ hr {
     padding: 2rem;
   }
 
+  .recipeImage img {
+    max-width: 100%;
+  }
+
+  .recipeInfo {
+    text-align: center;
+  }
+
+  .metaItem {
+    justify-content: center;
+  }
+
   .recipeContent {
     grid-template-columns: 1fr;
+  }
+
+  .ingredients, .steps {
+    padding: 1.5rem;
   }
 
 
