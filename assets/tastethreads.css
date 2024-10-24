@@ -286,8 +286,8 @@ main {
 
 .aboutMe{
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 4px;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 10px;
   /* padding: 20px; */
   /* max-width: 1200px; */
   margin: 0 auto;
@@ -321,15 +321,15 @@ main {
   flex-direction: column;
   justify-content: center;
   margin: 10px;
+  padding-right: 1rem;
 }
 
 /* !HELPPPPPPPPPP STYLING */
 
 .helpSection {
   height: 100vh;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px auto;
+  margin: 2rem;
+  padding: 2rem;
 }
 
 .accordion {
@@ -424,6 +424,7 @@ h1 {
   font-size: 48px;
   font-style: normal;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .logoItalic {
