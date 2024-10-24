@@ -11,14 +11,28 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- !Navigation Bar -->
     <header>
         <nav class="navigation" id="navigation">
             <!-- *Navigation Base Code by W3Schools -->
-            <a href="index.html" class="siteLogo">Taste Threads</a>
-            <a href="help.html">Help</a>
-            <a href="about.html">About Us</a>
+            <a href="index.html" class="siteLogo">Taste <span class="logoStrong">Threads</span></a>
+
+        <div class="search-container">
+            <button class="search-icon" onclick="toggleSearch()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                    <path d="M840-120 579-380q-28 24-63.5 36.5T444-331q-97 0-165.5-68.5T210-565q0-97 68.5-165.5T444-799q97 0 165.5 68.5T678-565q0 39-12.5 74.5T629-427l261 260-50 47ZM444-411q72 0 122.5-50.5T617-565q0-72-50.5-122.5T444-738q-72 0-122.5 50.5T271-565q0 72 50.5 122.5T444-411Z"/>
+                </svg>
+            </button>
+
+            <!-- Search Bar (Initially Hidden) -->
+            <div class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search..." id="searchInput">
+                <button onclick="submitSearch()">Search</button>
+            </div>
+            
             <a href="cusinetype.html">Recipes</a>
+            <a href="about.html">About Us</a>
+            <a href="help.html">Help</a>
+
             <a href="javascript:void(0);" class="navIcon" onclick="navButton()">
             
             <!-- *Default Navigation Icon -->
@@ -45,7 +59,26 @@
         </section>
     </main>
     <footer>
+        <div class="footer-container">
+            <section class="footer-brand">
+                <h2>Taste Threads</h2>
+                <p>Delicious recipes, threaded together.</p>
+            </section>
 
+            <section class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Recipes</a>
+                <a href="#">Contact</a>
+                <a href="#">About Us</a>
+            </section>
+
+            <section class="footer-social">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Youtube</a>
+            </section>
+        </div>
     </footer>
 
     <!-- !JavaScript -->

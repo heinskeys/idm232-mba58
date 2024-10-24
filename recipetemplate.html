@@ -11,14 +11,28 @@
     <title>Recipe Page Template</title>
 </head>
 <body>
-    <!-- !Navigation Bar -->
     <header>
         <nav class="navigation" id="navigation">
             <!-- *Navigation Base Code by W3Schools -->
-            <a href="index.html" class="siteLogo">Taste Threads</a>
-            <a href="help.html">Help</a>
-            <a href="about.html">About Us</a>
+            <a href="index.html" class="siteLogo">Taste <span class="logoStrong">Threads</span></a>
+
+        <div class="search-container">
+            <button class="search-icon" onclick="toggleSearch()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                    <path d="M840-120 579-380q-28 24-63.5 36.5T444-331q-97 0-165.5-68.5T210-565q0-97 68.5-165.5T444-799q97 0 165.5 68.5T678-565q0 39-12.5 74.5T629-427l261 260-50 47ZM444-411q72 0 122.5-50.5T617-565q0-72-50.5-122.5T444-738q-72 0-122.5 50.5T271-565q0 72 50.5 122.5T444-411Z"/>
+                </svg>
+            </button>
+
+            <!-- Search Bar (Initially Hidden) -->
+            <div class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search..." id="searchInput">
+                <button onclick="submitSearch()">Search</button>
+            </div>
+            
             <a href="cusinetype.html">Recipes</a>
+            <a href="about.html">About Us</a>
+            <a href="help.html">Help</a>
+
             <a href="javascript:void(0);" class="navIcon" onclick="navButton()">
             
             <!-- *Default Navigation Icon -->
@@ -49,20 +63,20 @@
                 <hr>
                 <div class="recipeMeta">
                     <div class="metaItem">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 960 960" fill="#000000">
-                            <path d="M627 673l45-45-159-160v-201h-60v225l174 181ZM480 880q-82 0-155-31.5t-127.5-86Q143 708 111.5 635T80 480q0-82 31.5-155t86-127.5Q252 143 325 111.5T480 80q82 0 155 31.5t127.5 86Q817 252 848.5 325T880 480q0 82-31.5 155t-86 127.5Q708 817 635 848.5T480 880Zm0-400Zm0 340q140 0 240-100t100-240q0-140-100-240T480 140q-140 0-240 100T140 480q0 140 100 240t240 100Z"/>
-                        </svg>                                                 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#356859">
+                            <path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/>
+                        </svg>                      
                         Cook Time
                     </div>
                     <div class="metaItem">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 960 960" fill="#000000">
-                            <path d="M243 880v-373q-57-15-90-55.5T120 357v-277h60v247h63v-247h60v247h64v-247h60v277q0 55-33 95t-91 55v373h-60Zm413 0v-389q-57-19-90.5-73.5T532 288q0-87 45-147.5T686 80q64 0 109 60.5T840 288q0 75-33.5 129.5T716 492v388h-60Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#356859">
+                            <path d="M240-80v-366q-54-14-87-57t-33-97v-280h80v240h40v-240h80v240h40v-240h80v280q0 54-33 97t-87 57v366h-80Zm400 0v-381q-54-18-87-75.5T520-667q0-89 47-151t113-62q66 0 113 62.5T840-666q0 73-33 130t-87 75v381h-80Z"/>
                         </svg>
                         Cuisine
                     </div>
                     <div class="metaItem">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 960 960" fill="#000000">
-                            <path d="M479.95 475.89q-68.68 0-112.3-43.62-43.63-43.63-43.63-112.31t43.63-112.35q43.62-43.68 112.3-43.68t112.47 43.68q43.8 43.67 43.8 112.35 0 68.68-43.8 112.31-43.79 43.62-112.47 43.62Zm-325.93 333.2v-100.41q0-39.56 19.92-68.04 19.91-28.49 51.43-43.27 67.48-30.24 129.69-45.36 62.2-15.12 124.88-15.12 63.13 0 124.79 15.62 61.66 15.62 128.9 44.86 32.58 14.47 52.58 43.03 20.01 28.56 20.01 68.22v100.47h-652.2Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#356859">
+                            <path d="M480-480.67q-66 0-109.67-43.66Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67ZM160-160v-100q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.34 45.17 30.33 14.33 48.83 41.83T800-260v100H160Z"/>
                         </svg>
                         Serving Size
                     </div>
@@ -122,17 +136,17 @@
             </section>
 
             <section class="footer-links">
-                <a href="#"><span class="material-icons">home</span> Home</a>
-                <a href="#"><span class="material-icons">restaurant_menu</span> Recipes</a>
-                <a href="#"><span class="material-icons">contact_support</span> Contact</a>
-                <a href="#"><span class="material-icons">info</span> About Us</a>
+                <a href="#">Home</a>
+                <a href="#">Recipes</a>
+                <a href="#">Contact</a>
+                <a href="#">About Us</a>
             </section>
 
             <section class="footer-social">
-                <a href="#"><span class="material-icons">facebook</span></a>
-                <a href="#"><span class="material-icons">twitter</span></a>
-                <a href="#"><span class="material-icons">instagram</span></a>
-                <a href="#"><span class="material-icons">youtube</span></a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Youtube</a>
             </section>
         </div>
     </footer>

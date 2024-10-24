@@ -1,24 +1,4 @@
-var navigationButton = document.getElementById("navigation");
-var menuIcon = document.getElementById("materialMenu");
-var closeIcon = document.getElementById("materialClose");
-var accordionItems = document.querySelectorAll('.accordionItem');
 
-// *Navigation Button
-function navButton() {
-    if (navigationButton.className === "navigation") {
-        navigationButton.className += " responsive";
-    } else {
-        navigationButton.className = "navigation";
-    }
-
-    if (menuIcon.style.display === "none") {
-        menuIcon.style.display = "block";
-        closeIcon.style.display = "none";
-    } else {
-        menuIcon.style.display = "none";
-        closeIcon.style.display = "block";
-    }
-}
 
 // *Help Accordion
 
@@ -66,19 +46,20 @@ function submitSearch() {
     }
 }
 
-// // Navigation Button for Mobile (Toggling Menu)
-// function navButton() {
-//     const menuIcon = document.getElementById('materialMenu');
-//     const closeIcon = document.getElementById('materialClose');
-//     const navigation = document.getElementById('navigation');
+// Navigation Button for Mobile (Toggling Menu)
+function navButton() {
+    var navigation = document.getElementById("navigation");
+    var materialMenu = document.getElementById("materialMenu");
+    var materialClose = document.getElementById("materialClose");
+    
+    if (navigation.className === "navigation") {
+        navigation.className += " responsive";
+        materialMenu.style.display = "none";
+        materialClose.style.display = "block";
+    } else {
+        navigation.className = "navigation";
+        materialMenu.style.display = "block";
+        materialClose.style.display = "none";
+    }
+}
 
-//     if (menuIcon.style.display === "none") {
-//         menuIcon.style.display = "block";
-//         closeIcon.style.display = "none";
-//     } else {
-//         menuIcon.style.display = "none";
-//         closeIcon.style.display = "block";
-//     }
-
-//     // Logic to show/hide the actual menu goes here
-// }
