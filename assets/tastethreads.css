@@ -67,13 +67,13 @@ main {
   margin-left: 10px;
 }
 
-.search-bar input {
+.search-bar input, .searchInput {
   padding: 5px;
   border-radius: 3px;
   border: 1px solid #ccc;
 }
 
-.search-bar button {
+.search-bar button, .searchButton {
   margin-left: 5px;
   padding: 5px 10px;
   background-color: #FD5523;
@@ -517,6 +517,43 @@ nav a {
 }
 
 /* ! */
+
+/* !SEARCH BARS */
+.search-bar input, .searchInput {
+  font-family: Gelica;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.search-bar button, .searchButton {
+  font-family: Gelica;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* !FOOTER */
+
+.footer-brand a {
+  font-family: Gelica;
+  font-size: 20px;
+  font-weight: 300;
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-social, .footer-links {
+  font-family: Gelica;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.footer-brand p {
+  color: #ffffff;
+  font-size: 16px;
+}
 
 .ingredientsList li {
   color: #356859;
