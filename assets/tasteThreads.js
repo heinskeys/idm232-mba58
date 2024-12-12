@@ -57,3 +57,27 @@ function navButton() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Select all the checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+    // Loop through each checkbox
+    checkboxes.forEach(function(checkbox) {
+        const label = checkbox.closest('label'); // Get the closest label element
+
+        // Check if the checkbox is already checked and add the class to the label
+        if (checkbox.checked) {
+            label.classList.add('checked');
+        }
+
+        // Add event listener to update the label class when the checkbox is clicked
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                label.classList.add('checked');
+            } else {
+                label.classList.remove('checked');
+            }
+        });
+    });
+});
+

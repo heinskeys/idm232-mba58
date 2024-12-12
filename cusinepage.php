@@ -4,9 +4,9 @@
     error_reporting(E_ALL);
 
     $query = isset($_GET['query']) ? trim($_GET['query']) : '';
-    $cuisines = isset($_GET['cuisine']) ? $_GET['cuisine'] : [];
-    $servings = isset($_GET['servings']) ? intval($_GET['servings']) : null;
-    $cook_time = isset($_GET['cook time']) ? intval($_GET['cook time']) : null;
+    $serving_sizes = isset($_GET['servings']) ? (array)$_GET['servings'] : [];
+    $cook_time_ranges = isset($_GET['cook_time']) ? (array)$_GET['cook_time'] : [];
+    $cuisines = isset($_GET['cuisine']) ? (array)$_GET['cuisine'] : [];    
 
     // Base SQL query for $query (search text)
     $sql = "
@@ -22,7 +22,6 @@
     // If there is a search query, add it to the WHERE clause
     if ($query) {
         if (is_numeric($query)) {
-            // Numeric search for servings or cook time (if the query is just a number)
             $sql .= " AND (`servings` = ? OR `cook time` = ?)";
             $params[] = $query;
             $params[] = $query;
@@ -41,7 +40,6 @@
                 $types .= "i";
             }
         } else {
-            // Full-text search for text-based fields
             $sql .= " AND MATCH(`title`, `cuisine`, `description`, `ingredients`, `steps`) AGAINST (? IN NATURAL LANGUAGE MODE)";
             $params[] = $query;
             $types .= "s";
@@ -49,38 +47,46 @@
     }
 
     // Filter by cuisines (if selected)
-    if (!empty($cuisine)) {
+    if (!empty($cuisines)) {
         $placeholders = implode(',', array_fill(0, count($cuisines), '?'));
         $sql .= " AND `cuisine` IN ($placeholders)";
         $params = array_merge($params, $cuisines);
-        $types .= str_repeat('s', count($cuisines)); // Add 's' for each cuisine selected
+        $types .= str_repeat('s', count($cuisines));
     }
 
-    // Filter by servings (if selected)
-    if ($servings) {
-        $sql .= " AND `servings` = ?";
-        $params[] = $servings;
-        $types .= "i";
+    // Filter by cook time ranges (if selected)
+    if (!empty($cook_time_ranges)) {
+        $sql .= " AND (";
+        $time_conditions = [];
+        foreach ($cook_time_ranges as $range) {
+            [$min_time, $max_time] = explode('-', $range);
+            $time_conditions[] = "(`cook time` BETWEEN ? AND ?)";
+            $params[] = intval($min_time);
+            $params[] = intval($max_time);
+            $types .= "ii";
+        }
+        $sql .= implode(' OR ', $time_conditions) . ")";
     }
 
-    // Filter by cook time (if selected)
-    if ($cook_time) {
-        $sql .= " AND `cook time` = ?";
-        $params[] = $cook_time;
-        $types .= "i";
+    // Filter by serving sizes (if selected)
+    if (!empty($serving_sizes)) {
+        $placeholders = implode(',', array_fill(0, count($serving_sizes), '?'));
+        $sql .= " AND `servings` IN ($placeholders)";
+        $params = array_merge($params, array_map('intval', $serving_sizes));
+        $types .= str_repeat('i', count($serving_sizes));
     }
 
     // Prepare and execute the statement
     $stmt = $connection->prepare($sql);
 
-    // Bind the parameters to the prepared statement
-    if ($types) {
+    if (!empty($types) && !empty($params)) {
         $stmt->bind_param($types, ...$params);
     }
 
     $stmt->execute();
     $result = $stmt->get_result();
 ?>
+
 
 
 <!DOCTYPE html>
@@ -117,28 +123,38 @@
                     <div class="cuisineFilter filter">
                         <div class="filterName">Cuisine Type</div>
                         <div class="filterLabels">
-                            <label><input type="checkbox" name="cuisine[]" value="Mexican" <?php if (isset($_GET['cuisine']) && in_array('Mexican', $_GET['cuisine'])) echo 'checked'; ?>> Mexican</label>
-                            <label><input type="checkbox" name="cuisine[]" value="Italian" <?php if (isset($_GET['cuisine']) && in_array('Italian', $_GET['cuisine'])) echo 'checked'; ?>> Italian</label>
-                            <label><input type="checkbox" name="cuisine[]" value="Indian" <?php if (isset($_GET['cuisine']) && in_array('Indian', $_GET['cuisine'])) echo 'checked'; ?>> Indian</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Mexican" <?php if (isset($_GET['cuisine']) && in_array('Mexican', $_GET['cuisine'])) echo 'checked'; ?>> Mexican</label>
+                        <label><input type="checkbox" name="cuisine[]" value="French" <?php if (isset($_GET['cuisine']) && in_array('French', $_GET['cuisine'])) echo 'checked'; ?>> French</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Italian" <?php if (isset($_GET['cuisine']) && in_array('Italian', $_GET['cuisine'])) echo 'checked'; ?>> Italian</label>
+                        <label><input type="checkbox" name="cuisine[]" value="American" <?php if (isset($_GET['cuisine']) && in_array('American', $_GET['cuisine'])) echo 'checked'; ?>> American</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Asian" <?php if (isset($_GET['cuisine']) && in_array('Asian', $_GET['cuisine'])) echo 'checked'; ?>> Asian</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Middle Eastern" <?php if (isset($_GET['cuisine']) && in_array('Middle Eastern', $_GET['cuisine'])) echo 'checked'; ?>> Middle Eastern</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Mediterranean" <?php if (isset($_GET['cuisine']) && in_array('Mediterranean', $_GET['cuisine'])) echo 'checked'; ?>> Mediterranean</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Indian" <?php if (isset($_GET['cuisine']) && in_array('Indian', $_GET['cuisine'])) echo 'checked'; ?>> Indian</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Korean" <?php if (isset($_GET['cuisine']) && in_array('Korean', $_GET['cuisine'])) echo 'checked'; ?>> Korean</label>
+                        <label><input type="checkbox" name="cuisine[]" value="Thai" <?php if (isset($_GET['cuisine']) && in_array('Thai', $_GET['cuisine'])) echo 'checked'; ?>> Thai</label>
                         </div>
                     </div>
 
                     <!-- Serving Size Filter -->
                     <div class="servingFilter filter">
                         <div class="filterName">Serving Size</div>
-                        <input type="range" name="servings" min="1" max="10" value="<?php echo isset($_GET['servings']) ? intval($_GET['servings']) : 4; ?>" 
-                            oninput="this.nextElementSibling.value = this.value">
-                        <output><?php echo isset($_GET['servings']) ? intval($_GET['servings']) : 4; ?></output>
+                        <div class="filterLabels">
+                            <label><input type="checkbox" name="servings[]" value="2" <?php if (in_array('2', $serving_sizes)) echo 'checked'; ?>> 2 servings</label>
+                            <label><input type="checkbox" name="servings[]" value="4" <?php if (in_array('4', $serving_sizes)) echo 'checked'; ?>> 4 servings</label>
+                        </div>
                     </div>
 
                     <!-- Cook Time Filter -->
                     <div class="cooktimeFilter filter">
-                        <div class="filterName">Cook Time (mins)</div>
-                        <input type="range" name="cook_time" min="5" max="120" step="5" value="<?php echo isset($_GET['cook_time']) ? intval($_GET['cook_time']) : 30; ?>" 
-                            oninput="this.nextElementSibling.value = this.value">
-                        <output><?php echo isset($_GET['cook_time']) ? intval($_GET['cook_time']) : 30; ?></output>
+                        <div class="filterName">Cook Time</div>
+                        <div class="filterLabels">
+                            <label><input type="checkbox" name="cook_time[]" value="0-30" <?php if (in_array('0-30', $cook_time_ranges)) echo 'checked'; ?>> 0-30 minutes</label>
+                            <label><input type="checkbox" name="cook_time[]" value="31-45" <?php if (in_array('31-45', $cook_time_ranges)) echo 'checked'; ?>> 31-45 minutes</label>
+                            <label><input type="checkbox" name="cook_time[]" value="46-60" <?php if (in_array('46-60', $cook_time_ranges)) echo 'checked'; ?>> 46-60 minutes</label>
+                        </div>
                     </div>
-                    <button type="submit" class="searchButton">Search</button>
+                    <button type="submit" class="filterButton">Filter</button>
                 </form>
             </section>
             <!-- !Recipes -->

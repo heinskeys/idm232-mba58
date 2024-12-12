@@ -297,6 +297,39 @@ main {
   padding-left: 1em;
 }
 
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Style for the label to make it look clickable */
+label {
+  padding: 2.5px;
+  cursor: pointer; /* Make the cursor look like it's clickable */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover state when the user hovers over the label */
+label:hover {
+  background-color: #81BF98;
+}
+
+/* Default background for checked checkboxes */
+label.checked {
+  background-color: #81BF98;
+}
+
+.filterButton {
+  background-color: #58061c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  margin: 0px 0px;
+  width: 100%;
+}
+
 .recipeCards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -596,7 +629,7 @@ nav a {
   font-weight: 300;
 }
 
-.search-bar button, .searchButton {
+.search-bar button, .searchButton, .filterButton {
   font-family: Gelica;
   font-size: 14px;
   font-style: normal;

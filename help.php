@@ -38,7 +38,7 @@
                     How do I learn more about a recipe?
                 </h3>
                 <div class="accordionContent">
-                    <p>To learn more about a recipe, click on it's recipe card within the <a href="recipe.php">recipes</a> page! There you can fin the full recipe along with detailed instructions, ingredients lists and step by step images!</p>
+                    <p>To learn more about a recipe, click on it's recipe card within the <a href="cusinepage.php">recipes</a> page! There you can fin the full recipe along with detailed instructions, ingredients lists and step by step images!</p>
                 </div>
             </section>
             
