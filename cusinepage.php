@@ -85,6 +85,15 @@
 
     $stmt->execute();
     $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        // Render recipes if there are results
+    } else {
+        // Send the 404 header immediately
+        header("HTTP/1.0 404 Not Found");
+        header("Location: 404page.php");  // Redirect to 404 page
+        exit;  // Terminate the script execution immediately
+    }
 ?>
 
 
@@ -199,8 +208,6 @@
                             </div>
                         </a>
                         <?php endwhile; ?>
-                <?php else: ?>
-                    <?php header("Location: 404page.php"); exit; ?>
                 <?php endif; ?>
             </section>
         </section>

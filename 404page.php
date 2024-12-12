@@ -19,7 +19,7 @@
             <div class="errorContainer">
                 <h1>Oh! No! We didn't find the recipe you were looking for! Try rephrasing your search.</h1>
                 <a href="cusinepage.php">
-                    <button>Go Back</button>
+                    <button class="searchButton">Go Back</button>
                 </a>
             </div>
         </section>
