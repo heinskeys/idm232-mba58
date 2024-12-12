@@ -12,12 +12,6 @@ var accordions = document.querySelectorAll('.accordionItem');
     header.addEventListener('click', function() {
         var isOpen = content.style.display === 'block';
 
-      // Close all accordions
-    accordions.forEach(function(item) {
-        item.querySelector('.accordionContent').style.display = 'none';
-        item.querySelector('.accordionIcon').textContent = 'add';
-    });
-
       // If this accordion was not open, open it
     if (!isOpen) {
         content.style.display = 'block';
