@@ -36,7 +36,7 @@ main {
 
 /* Change the color of links on hover */
 .navigation a:hover {
-  background-color: #ddd;
+  background-color: #639475;
   color: black;
 }
 
@@ -493,7 +493,7 @@ footer {
 }
 
 .footer-links a:hover, .footer-social a:hover {
-  color: #4695D7;
+  color: #363636;
 }
 
 .footer-links a span, .footer-social a span {

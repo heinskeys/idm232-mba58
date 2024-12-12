@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/rsa1ajy.css">
     <link rel="stylesheet" href="assets/tastethreads.css">
-    <title>Document</title>
+    <title>About Us</title>
 </head>
 <body>
     <!-- !Navigation Bar -->

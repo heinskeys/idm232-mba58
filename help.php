@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/rsa1ajy.css">
     <link rel="stylesheet" href="assets/tastethreads.css">
-    <title>Document</title>
+    <title>Help Me!</title>
 </head>
 <body>
     <!-- !Navigation Bar -->
