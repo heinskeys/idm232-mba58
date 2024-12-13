@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/rsa1ajy.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="assets/tastethreads.css">
     <title>Help Me!</title>
 </head>
@@ -24,17 +27,17 @@
     
             <section class="accordionItem">
                 <h3 class="accordionHeader">
-                    <span class="material-icons accordionIcon">remove</span> <!-- Expanded by default -->
+                    <span class="material-icons accordionIcon">remove</span>
                     How do I find a recipe?
                 </h3>
-                <div class="accordionContent" style="display: block;"> <!-- Default open -->
+                <div class="accordionContent" style="display: block;"> 
                     <p>You can search for a recipe via the search bar on both the home pages and within our all recipes page! </p>
                 </div>
             </section>
             
             <section class="accordionItem">
                 <h3 class="accordionHeader">
-                    <span class="material-icons accordionIcon">add</span> <!-- Collapsed by default -->
+                    <span class="material-icons accordionIcon">add</span> 
                     How do I learn more about a recipe?
                 </h3>
                 <div class="accordionContent">
@@ -44,7 +47,7 @@
             
             <section class="accordionItem">
                 <h3 class="accordionHeader">
-                    <span class="material-icons accordionIcon">add</span> <!-- Collapsed by default -->
+                    <span class="material-icons accordionIcon">add</span> 
                     How do I learn more about Taste Threads?
                 </h3>
                 <div class="accordionContent">

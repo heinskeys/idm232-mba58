@@ -1,4 +1,5 @@
 <?php
+    // DB connection and setup + error handling
     require_once 'includes/db.php';
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
@@ -19,7 +20,6 @@
     $params = [];
     $types = "";
 
-    // If there is a search query, add it to the WHERE clause
     if ($query) {
         if (is_numeric($query)) {
             $sql .= " AND (`servings` = ? OR `cook time` = ?)";
@@ -39,7 +39,7 @@
                 $params[] = $number;
                 $types .= "i";
             }
-        } else {
+        } else { // Full-text search
             $sql .= " AND MATCH(`title`, `cuisine`, `description`, `ingredients`, `steps`) AGAINST (? IN NATURAL LANGUAGE MODE)";
             $params[] = $query;
             $types .= "s";
@@ -86,13 +86,14 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
+
+    // Check if there are any results
     if ($result && $result->num_rows > 0) {
-        // Render recipes if there are results
-    } else {
-        // Send the 404 header immediately
+        // Results found
+    } else { // No results found
         header("HTTP/1.0 404 Not Found");
-        header("Location: 404page.php");  // Redirect to 404 page
-        exit;  // Terminate the script execution immediately
+        header("Location: 404page.php"); 
+        exit; 
     }
 ?>
 
@@ -107,6 +108,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/rsa1ajy.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="assets/tastethreads.css">
     <title>Our Recipes</title>
 </head>

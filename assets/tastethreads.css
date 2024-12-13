@@ -31,22 +31,21 @@ main {
 }
 
 .navigation .siteLogo {
-  float: left; /* Ensure the "Taste Threads" link floats left */
+  float: left; 
 }
 
-/* Change the color of links on hover */
+
 .navigation a:hover {
   background-color: #639475;
   color: black;
 }
 
-/* Add an active class to highlight the current page */
+
 .navigation a.active {
   background-color: #04AA6D;
   color: white;
 }
 
-/* Hide the link that should open and close the navigation on small screens */
 .navigation .navIcon {
   display: none;
 }
@@ -82,6 +81,11 @@ main {
   cursor: pointer;
 }
 
+.searchButton:hover {
+  background-color: #86001f;
+  color: white;
+}
+
 .search-icon {
   background: none;
   border: none;
@@ -95,14 +99,14 @@ main {
 /* !INDEX STYLING */
 
 .homepage {
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../patterntest.png'); /* Replace with your pattern image */
+  background-image: url('../assets/images/patterntest.png'); 
   background-size: auto;
-  background-repeat: repeat; /* Repeat the pattern if necessary */
+  background-repeat: repeat; 
   text-align: center;
 }
 
@@ -222,7 +226,7 @@ main {
 }
 
 .imageContainer {
-  grid-column: 2; /* Place the image container in the second column */
+  grid-column: 2; 
   max-width: 100%;
   height: auto;
 }
@@ -234,7 +238,7 @@ main {
 
 .stepImageContainer {
   margin: 20px;
-  grid-column: 1; /* Place the image container in the second column */
+  grid-column: 1; 
   max-width: 100%;
   height: auto;
 }
@@ -303,19 +307,18 @@ input[type="checkbox"] {
   pointer-events: none;
 }
 
-/* Style for the label to make it look clickable */
+
 label {
   padding: 2.5px;
-  cursor: pointer; /* Make the cursor look like it's clickable */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
 }
 
-/* Hover state when the user hovers over the label */
+
 label:hover {
   background-color: #81BF98;
 }
 
-/* Default background for checked checkboxes */
 label.checked {
   background-color: #81BF98;
 }
@@ -447,14 +450,14 @@ aboutDesc p {
 /* !404 PAGE */
 
 .errorPage {
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../patterntest.png'); /* Replace with your pattern image */
+  background-image: url('../patterntest.png'); 
   background-size: auto;
-  background-repeat: repeat; /* Repeat the pattern if necessary */
+  background-repeat: repeat; 
   text-align: center;
 }
 
@@ -591,6 +594,20 @@ p {
   font-weight: 500;
 }
 
+.case-study {
+  margin: 4rem;
+}
+
+.case-study p  {
+  color: #356859;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 3rem;
+}
+
 /* !NAVIGATION TEXT */
 
 nav a {
@@ -629,7 +646,7 @@ nav a {
   font-weight: 300;
 }
 
-.search-bar button, .searchButton, .filterButton {
+.search-bar button, .searchButton, .filterButton, .case-study-link {
   font-family: Gelica;
   font-size: 14px;
   font-style: normal;
@@ -698,6 +715,46 @@ nav a {
 hr {
   margin: 10px 0px;
 }
+
+/* !CASE STUDY */
+
+.case-study-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+  margin: 4rem 0px;
+}
+.case-study-images img {
+  width: auto; 
+  height: 550px; 
+}
+
+.case-study-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.case-study-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 4rem;
+  background-color: #58061c;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: normal;
+  transition: all 0.3s ease;
+}
+
+.case-study-link:hover {
+  background-color: #86001f;
+  color: white;
+}
+
 
 /* !MEDIA QUERIES */
 
@@ -818,10 +875,6 @@ hr {
       text-align: left;
   }
 
-  /* !SEARCH BUTTON NAV */
-  .search-icon, .search-bar {
-    display: none;
-  }
 
   /* !RECIPE TEMPLATE */
   .recipeHeader {

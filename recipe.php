@@ -24,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/rsa1ajy.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="assets/tastethreads.css">
     <title>Recipes</title>
 </head>
@@ -114,7 +117,7 @@
                                 $stepParts = explode('--', $step);
 
                                 if (count($stepParts) === 2) {
-                                    // Trim the step title and instruction to avoid any unwanted whitespace
+                                    // Trim the step title and instruction
                                     $stepTitle = trim($stepParts[0]);
                                     $stepInstruction = trim($stepParts[1]);
 
@@ -145,6 +148,7 @@
         </section>
     </main>
 
+    <!-- Litmus Test -->
     <?php 
     } else {
         echo "Recipe not found.";
