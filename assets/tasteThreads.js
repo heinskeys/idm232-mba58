@@ -15,16 +15,19 @@ var accordions = document.querySelectorAll('.accordionItem');
       // If this accordion was not open, open it
     if (!isOpen) {
         content.style.display = 'block';
-        icon.textContent = 'remove'; // Change to minus when open
+        icon.textContent = 'remove'; 
     } else {
-        icon.textContent = 'add'; // Reset to plus when closed
+        content.style.display = 'none';
+        icon.textContent = 'add'; 
     }
     });
 });
 
-// Toggle Search Bar visibility
+
+// *Search Bar
+
 function toggleSearch() {
-    const searchBar = document.getElementById('searchBar');
+    var searchBar = document.getElementById('searchBar');
     if (searchBar.style.display === 'flex') {
         searchBar.style.display = 'none';
     } else {
@@ -32,15 +35,15 @@ function toggleSearch() {
     }
 }
 
-// Redirect to 404page.html when search is submitted
+// *Search Bar Submit
 function submitSearch() {
-    const searchInput = document.getElementById('searchInput').value;
+    var searchInput = document.getElementById('searchInput').value;
     if (searchInput.trim() !== "") {
         window.location.href = '404page.html';
     }
 }
 
-// Navigation Button for Mobile (Toggling Menu)
+// *Navigation Bar
 function navButton() {
     var navigation = document.getElementById("navigation");
     var materialMenu = document.getElementById("materialMenu");
@@ -57,13 +60,14 @@ function navButton() {
     }
 }
 
+// *Checkboxes
 document.addEventListener("DOMContentLoaded", function() {
     // Select all the checkboxes
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
     
     // Loop through each checkbox
     checkboxes.forEach(function(checkbox) {
-        const label = checkbox.closest('label'); // Get the closest label element
+        var label = checkbox.closest('label'); // Get the closest label element
 
         // Check if the checkbox is already checked and add the class to the label
         if (checkbox.checked) {

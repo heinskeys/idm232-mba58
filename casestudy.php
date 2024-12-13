@@ -35,8 +35,8 @@
             <p>Eventually, I drew inspiration from the <strong>Material Design System</strong>, particularly a case study Google released about testing material design within a food app. This heavily influenced my branding. I used it as a base while also adding my own visual elements, and I really liked the color palette they developed. This led to the development of wireframes, which you can see below.</p>
 
             <div class="case-study-images">
-                <img src="assets/images/cs-Image Treatment.png" alt="">
-                <img src="assets/images/cs-Taste Threads - Home.png" alt="">
+                <img src="assets/images/cs-Image-Treatment.png" alt="">
+                <img src="assets/images/cs-Taste-Threads-Home.png" alt="">
                 <img src="assets/images/cs-Recipe.png" alt="">
             </div>
             
